@@ -1,0 +1,28 @@
+.terms_container{
+    margin-top:40px;
+}
+.terms_container h1{
+    color: black;
+    padding: 30px;
+    margin-left: 550px;
+    font-size: 45px;
+}
+.terms_container p{
+    color: black;
+    text-align: left;
+    font-size: 20px;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+.terms_box{
+    margin-bottom: 50px;
+    width: 70%;
+    margin-left: 250px;
+    margin-top:60px;
+}
+.terms_box h2{
+    color:black;
+    font-size: 30px;
+    margin-bottom: 15px;
+    margin-top:30px;
+}

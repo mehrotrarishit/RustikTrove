@@ -1,0 +1,38 @@
+.Privacy_container h1{
+    color: black;
+    margin-left: 550px;
+    padding: 30px;
+    font-size: 45px;
+    margin-bottom: 60px;
+}
+
+.privacy_box{
+    color: black;
+    width: 70%;
+    margin-left: 240px;
+    text-align: left;
+    margin-bottom: 70px;
+}
+.privacy_box h2{
+    color: black;
+    padding: 20px;
+    font-size: 26px;
+}
+.privacy_box p,
+.privacy_box li{
+    color: black;
+    font-size: 18px;
+    padding: 5px;
+}
+
+.privacy_box h3{
+    color: black;
+    font-size: 22px;
+    padding: 10px;
+}
+.anchor{
+    text-decoration: none;
+    color:blue;
+    font-weight: 700;
+    cursor: pointer;
+}

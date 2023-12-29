@@ -1,0 +1,77 @@
+.reviewall h2{
+  text-align: center;
+  font-size: 50px;
+  color: black;
+  margin-top:30px;
+}
+.review_page {
+    margin: 60px ;
+    padding: 20px;
+    display:flex;
+  }
+  
+  .review_header {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 100px;
+    margin-left:100px;
+  }
+  
+  .starbox {
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 25px;
+  }
+  
+  .starbox h3 {
+    margin: 5px;
+  }
+  
+  .barchart{
+    width: 300px; 
+    height:100px;
+    margin: 5px;
+  }
+  .reviewwrapper {
+    display:flex;
+    width:120%;
+    justify-content:left;
+    align-items:left;
+    height:auto;
+    margin-left:100px;
+    margin-top:60px;
+  }
+  
+  .reviewaccordion {
+    width:120%;
+  }
+  
+  .review-item {
+    background:#f0ebe1;
+    margin-bottom: 5px;
+    padding: 5px 20px;
+    border-radius:5px;
+    cursor:pointer;
+  }
+  
+  .review-title{
+    color:#85662b;
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+  }
+  
+  .review-content{
+    color:#8b7f75;
+    max-height:0;
+    overflow:hidden;
+    transition: all 0.5s cubic-bezier(0,1,0,1);
+  }
+  
+  .review-content.show{
+    max-height:100px;
+    overflow:auto;
+    transition: all 0.5s cubic-bezier(0,1,0,1);
+    font-size: 20px;
+  }
