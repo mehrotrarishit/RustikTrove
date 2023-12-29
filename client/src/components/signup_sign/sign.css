@@ -1,0 +1,142 @@
+section{
+    position: relative;
+    width: 100%;
+    top: 20px;
+    min-height:100vh;   
+}
+
+.sign_container{
+    width: 85%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sign_header img{
+    width: 15%;
+    height: 200px;
+    margin-top: -40px;
+    cursor: pointer;
+    margin-left: 638px;
+    padding-bottom: 30px;
+}
+
+.sign_form{
+    border: 1px solid #c9c9c9;
+    padding: 20px 27px;
+    margin-top: -50px;
+    border-radius: 5px;
+    width: 25%;
+    margin-left: 565px;
+    background-color: #fff5e6;
+}
+
+.sign_form h1{
+    font-weight: 500;
+    font-size: 27px;
+    margin: 10px 0;
+}
+
+.sign_form label{
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 1px;
+}
+
+.sign_form input{
+    width: 100%;
+    height: 31px;
+    padding: 3px 7px;
+    border-radius: 3px;
+    outline: none;
+    border:1px solid #a6a6a6;
+    margin-bottom: 10px;
+    margin-top: 1px;
+}
+
+.sign_form .signin_btn{
+    margin-top: 7px;
+    margin-bottom: 23px;
+    width: 100%;
+    cursor: pointer;
+    border:1px solid #a28b50;
+    height: 29px;
+    outline: none;
+    border-radius: 3px;
+    color: #111;
+    background: linear-gradient(to bottom,#c9b891,#e4cf99)
+}
+
+.sign_form input:focus{
+    box-shadow: 0 0 5px 0px #e6ce9c;
+}
+.create_accountinfo p{
+    font-size: 12px;
+    text-align: center;
+    color: #767676;
+    margin-top: 20px;
+    font-weight: 600;
+    margin-left: -10px;
+}
+
+.create_accountinfo button{
+    background: linear-gradient(to bottom,#f7f8fa,#e7e9ec);
+    height: 29px;
+    width: 300px;
+    border-radius: 3px;
+    border: 1px solid #adb1b8;
+    outline: none;
+    margin-top: 15px;
+    margin-left: 570px;
+}
+
+.create_accountinfo a{
+    text-decoration: none;
+    color: #111;
+    padding: 10px 35px;
+    letter-spacing: .5px;
+}
+
+input{
+    background-color: #fcfbe3;
+}
+ .Mobile{
+  display: flex;
+  gap: 20px; 
+ }
+ #number{
+  width: 70%;
+ }
+ #country_code{
+  width: 20%;
+ }
+ .already_accountinfo{
+  display: flex;
+  margin-left: 620px;
+ }
+ .already_accountinfo button{
+  background: linear-gradient(to bottom,#f7f8fa,#e7e9ec);
+  height: 29px;
+  width: 90px;
+  border-radius: 3px;
+  border: 1px solid #adb1b8;
+  outline: none;
+  margin-top: 3px;
+
+ }
+
+ .already_accountinfo p{
+  font-size: 12px;
+  text-align: center;
+  color: #767676;
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+.already_accountinfo a{
+  text-decoration: none;
+  color: #111;
+  padding: 10px 35px;
+  letter-spacing: .5px;
+}

@@ -1,0 +1,24 @@
+.return_container h1{
+    color: black;
+    padding: 30px;
+    margin-left: 550px;
+    font-size: 45px;
+}
+.return_container p{
+    padding: 20px;
+    color: black;
+    text-align: left;
+    font-size: 20px;
+}
+.return_box{
+    margin-bottom: 50px;
+    width: 70%;
+    margin-left: 250px;
+}
+.return_container li{
+    padding: 20px;
+    color: black;
+    text-align: left;
+    font-size: 20px;
+    list-style:decimal;
+}

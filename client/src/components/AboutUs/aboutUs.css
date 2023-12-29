@@ -1,0 +1,77 @@
+.Heading{
+    margin-left: 700px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: black;
+}
+.head{
+    margin-bottom: 30px;
+    margin-left: 720px;
+    color: black;
+}
+.main{
+    color: black;
+    width: 50%;
+    margin-left: 450px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.story_full{
+    display: flex;
+}
+.ima{
+    margin-top: 30px;
+    width: 100%;
+    height: 400px;
+}
+.story{
+    margin-top: 100px;
+    margin-left: 50px;
+     width: 100%;
+    text-align:left;
+}
+.str{
+    color: black;
+}
+#str_head{
+    color: black;
+}
+@keyframes moveInLine {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  .slide {
+    white-space: nowrap; 
+    overflow: hidden; 
+    animation: moveInLine 15s linear infinite; 
+    margin-top: 60px ;
+    margin-bottom: 30px;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  .speak{
+    color: black;
+    margin-left: 720px;
+    margin-top: 80px;
+    font-weight: 200;
+    size: 24px;
+  }
+  .name{
+    color: black;
+    font-weight: 700;
+    size:36px;
+    margin-left: 690px;
+  }
+  .words{
+    color: black;
+    text-align: center;
+    width: 50%;
+    margin-left: 420px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
