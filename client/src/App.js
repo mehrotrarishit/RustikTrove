@@ -22,7 +22,11 @@ import Review from './components/ReviewsPage/Review';
 import Shipping from './components/ShippingPolicy/Shipping';
 import Terms from './components/TermsOfService/Terms';
 import CircularProgress from '@mui/material/CircularProgress';
-
+import Navtop from './components/navbar/Navtop';
+import Men from './components/multiple_products/Men'
+import Women from './components/multiple_products/Women'
+import Accessories from './components/multiple_products/Accessories';
+import Account from './components/Account_page/Account';
 function App() {
   const [data, setData] = useState(false);
 
@@ -35,7 +39,7 @@ function App() {
   const [searchOpen, setSearchOpen] = useState(false);
   const navigate = useNavigate();
 
-  const openSearch = () => {
+  const handleSearchIconClick = () => {
     setSearchOpen(true);
   };
 
@@ -43,11 +47,11 @@ function App() {
     setSearchOpen(false);
   };
 
-  function Home({ openSearch }) {
+  function Home({ handleSearchIconClick }) {
     return (
       <>
         <ScrollToTop />
-        <Newnav openSearch={openSearch} />
+        <Newnav handleSearchIconClick={handleSearchIconClick} />
         <Best_S />
         <MostLovedProduct />
         <Footer />
@@ -71,8 +75,24 @@ function App() {
         <>
           <Navbar />
           <ReviewsButton />
+          <Routes className="navtop">
+            <Route path="/Abt" element={<Navtop handleSearchIconClick={handleSearchIconClick} />} />
+            <Route path="/faq" element={<Navtop handleSearchIconClick={handleSearchIconClick} />} />
+            <Route path="/contact-us" element={<Navtop handleSearchIconClick={handleSearchIconClick} />} />
+            <Route path="/privacy-policy" element={<Navtop handleSearchIconClick={handleSearchIconClick} />} />
+            <Route path="/return-policy" element={<Navtop handleSearchIconClick={handleSearchIconClick} />} />
+            <Route path="/shipping-policy" element={<Navtop handleSearchIconClick={handleSearchIconClick} />} />
+            <Route path="/terms-of-service" element={<Navtop handleSearchIconClick={handleSearchIconClick} />} />
+            <Route path="/product/:id" element={<Navtop handleSearchIconClick={handleSearchIconClick} />} />
+            <Route path="/cart" element={<Navtop handleSearchIconClick={handleSearchIconClick} />} />
+            <Route path="/reviews" element={<Navtop handleSearchIconClick={handleSearchIconClick} />} />
+            <Route path="/men" element={<Navtop handleSearchIconClick={handleSearchIconClick} />} />
+            <Route path="/women" element={<Navtop handleSearchIconClick={handleSearchIconClick} />} />
+            <Route path="/accessories" element={<Navtop handleSearchIconClick={handleSearchIconClick} />} />
+            <Route path="/account" element={<Navtop handleSearchIconClick={handleSearchIconClick} />} />
+          </Routes>
           <Routes>
-            <Route path="/" element={<Home openSearch={openSearch} />} />
+            <Route path="/" element={<Home handleSearchIconClick={handleSearchIconClick} />} />
             <Route path="/login" element={<Sign_in />} />
             <Route path="/register" element={<SignUp />} />
             <Route path="/Abt" element={<About />} />
@@ -80,25 +100,33 @@ function App() {
             <Route path="/contact-us" element={<ContactUs />} />
             <Route path="/privacy-policy" element={<Privacy />} />
             <Route path="/cart" element={<Cart />} />
-            <Route path="/product/:_id" element={<Product />} />
+            <Route path="/product/:id" element={<Product />} />
             <Route path="/return-policy" element={<Return />} />
             <Route path="/reviews" element={<Review />} />
             <Route path="/shipping-policy" element={<Shipping />} />
             <Route path="/terms-of-service" element={<Terms />} />
+            <Route path="/men" element={<Men />} />
+            <Route path="/women" element={<Women />} />
+            <Route path="/accessories" element={<Accessories />} />
+            <Route path="/account" element={<Account />} />
           </Routes>
-
           {searchOpen && <SearchContainer onClose={closeSearch} />}
+
           <Routes className="scrolltotop">
             <Route path="/Abt" element={<ScrollToTop />} />
             <Route path="/faq" element={<ScrollToTop />} />
             <Route path="/contact-us" element={<ScrollToTop />} />
             <Route path="/privacy-policy" element={<ScrollToTop />} />
             <Route path="/cart" element={<ScrollToTop />} />
-            <Route path="/product/:_id" element={<ScrollToTop />} />
+            <Route path="/product/:id" element={<ScrollToTop />} />
             <Route path="/return-policy" element={<ScrollToTop />} />
             <Route path="/reviews" element={<ScrollToTop />} />
             <Route path="/shipping-policy" element={<ScrollToTop />} />
             <Route path="/terms-of-service" element={<ScrollToTop />} />
+            <Route path="/men" element={< ScrollToTop />} />
+            <Route path="/women" element={< ScrollToTop />} />
+            <Route path="/accessories" element={< ScrollToTop />} />
+            <Route path="/account" element={< ScrollToTop />} />
           </Routes>
 
           <Routes className="footer">
@@ -107,11 +135,15 @@ function App() {
             <Route path="/contact-us" element={<Footer />} />
             <Route path="/privacy-policy" element={<Footer />} />
             <Route path="/cart" element={<Footer />} />
-            <Route path="/product/:_id" element={<Footer />} />
+            <Route path="/product/:id" element={<Footer />} />
             <Route path="/return-policy" element={<Footer />} />
             <Route path="/reviews" element={<Footer />} />
             <Route path="/shipping-policy" element={<Footer />} />
             <Route path="/terms-of-service" element={<Footer />} />
+            <Route path="/men" element={<Footer />} />
+            <Route path="/women" element={<Footer />} />
+            <Route path="/accessories" element={<Footer />} />
+            <Route path="/account" element={<Footer />} />
           </Routes>
         </>
       ) : (

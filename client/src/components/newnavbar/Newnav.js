@@ -9,27 +9,31 @@ import logo from '../../image/logofinal.png';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { LoginContext } from "../context/ContextProvider";
 import { useSelector } from 'react-redux';
-
-// import Box from '@mui/material/Box';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import Divider from '@mui/material/Divider';
-// import IconButton from '@mui/material/IconButton';
-// import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
 import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import LoginIcon from '@mui/icons-material/Login';
-import { IconButton } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import Drawer from '@mui/material/Drawer';
+import TemporaryDrawer from './TemporaryDrawer.js'
+
 
 const Newnav = ({ openSearch }) => {
     const { account, setAccount } = useContext(LoginContext);
-    console.log(account);
+    // console.log(account);
+
+
+    const [dropen, setDropen] = useState(false);
 
     const history = useNavigate();
     const [anchorEl, setAnchorEl] = useState(null);
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -37,8 +41,6 @@ const Newnav = ({ openSearch }) => {
     const handleClose = () => {
         setAnchorEl(null);
     };
-
-
 
     const getdetailvaliduser = async () => {
         const res = await fetch("/validuser", {
@@ -60,7 +62,7 @@ const Newnav = ({ openSearch }) => {
             setAccount(data);
         }
     };
-    
+
 
     const logoutuser = async () => {
         const res2 = await fetch("/logout", {
@@ -85,26 +87,40 @@ const Newnav = ({ openSearch }) => {
         }
     };
 
-
-
     useEffect(() => {
         getdetailvaliduser()
     }, [])
 
+    //for drawer
+    const handelopen = () => {
+        setDropen(true);
+    }
+
+    const handleClosedr = () => {
+        setDropen(false)
+    }
+
     return (
 
-        <div className="newnav">
+        <div className="newnav_main">
             <div className='VB'>
                 <video src={VideoBg1} autoPlay loop muted />
             </div>
-            <div className='tab'>
+            <div className='tab_new'>
                 <div className="nav_left">
                     <ul>
                         <li><NavLink to="/Abt"><a href="#" className='Abt'>About Us</a></NavLink></li>
-                        <li><a href="#" className='M'>Men</a></li>
-                        <li><a href="#" className='W'>Women</a></li>
-                        <li><a href="#" className='K'>Accessories</a></li>
+                        <li><NavLink to="/men"><a href="#" className='M'>Men</a></NavLink></li>
+                        <li><NavLink to="/women"><a href="#" className='W'>Women</a></NavLink></li>
+                        <li><NavLink to="/accessories"><a href="#" className='K'>Accessories</a></NavLink></li>
                     </ul>
+                    <IconButton className="hamburgur" onClick={handelopen}>
+                        <MenuIcon />
+                    </IconButton>
+
+                    <Drawer open={dropen} onClose={handleClosedr}>
+                        <TemporaryDrawer />
+                    </Drawer>
                 </div>
                 <div className="nav_center">
                     <img src={logo} alt="Logo"></img>
@@ -180,12 +196,12 @@ const Newnav = ({ openSearch }) => {
                                     </MenuItem>
                                     <Divider />
                                     <NavLink to="/register" className="registerlink">
-                                    <MenuItem onClick={handleClose}>
-                                        <ListItemIcon>
-                                            <PersonAdd fontSize="small" />
-                                        </ListItemIcon>
-                                        Add another account
-                                    </MenuItem>
+                                        <MenuItem onClick={handleClose}>
+                                            <ListItemIcon>
+                                                <PersonAdd fontSize="small" />
+                                            </ListItemIcon>
+                                            Add another account
+                                        </MenuItem>
                                     </NavLink>
                                     <MenuItem onClick={handleClose}>
                                         <ListItemIcon>
@@ -210,7 +226,7 @@ const Newnav = ({ openSearch }) => {
                                         aria-controls={open ? 'account-menu' : undefined}
                                         aria-haspopup="true"
                                         aria-expanded={open ? 'true' : undefined}>
-                                        <Avatar className="avatar" style={{background: "black"}}></Avatar>
+                                        <Avatar className="avatar" style={{ background: "black" }}></Avatar>
                                     </IconButton>
                                 </Tooltip>
                                 <Menu
@@ -249,21 +265,21 @@ const Newnav = ({ openSearch }) => {
                                     anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
                                 >
                                     <NavLink to="/login" className="registerlink">
-                                    <MenuItem onClick={handleClose}>
-                                        <ListItemIcon>
-                                            <LoginIcon fontSize="small" />
-                                        </ListItemIcon>
-                                        Login
-                                    </MenuItem>
+                                        <MenuItem onClick={handleClose}>
+                                            <ListItemIcon>
+                                                <LoginIcon fontSize="small" />
+                                            </ListItemIcon>
+                                            Login
+                                        </MenuItem>
                                     </NavLink>
                                     <Divider />
                                     <NavLink to="/register" className="registerlink">
-                                    <MenuItem onClick={handleClose}>
-                                        <ListItemIcon>
-                                            <PersonAdd fontSize="small" />
-                                        </ListItemIcon>
-                                        Add an account
-                                    </MenuItem>
+                                        <MenuItem onClick={handleClose}>
+                                            <ListItemIcon>
+                                                <PersonAdd fontSize="small" />
+                                            </ListItemIcon>
+                                            Add an account
+                                        </MenuItem>
                                     </NavLink>
                                     <MenuItem onClick={handleClose}>
                                         <ListItemIcon>

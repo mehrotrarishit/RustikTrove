@@ -1,0 +1,39 @@
+/* account.css */
+
+.account_p{
+    display: flex;
+    height: 100vh; /* Adjust the height as needed */
+}
+
+.left_account {
+    flex: 1;
+    width: 5px; /* Adjust the width as needed */
+    background-color: #f2f2f2; /* Left background color */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.right_account {
+    flex: 2;
+    width: 80%; /* Adjust the width as needed */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.partition_line {
+    border-right: 2px solid #ccc; /* Partition line color */
+    height: 100%;
+    margin-right: 20px; /* Adjust the margin as needed */
+}
+
+.mobile_account{
+    display:flex;
+}
+
+.name_account{
+    display:flex;
+}
+
+.email_account{
+    display:flex;
+}

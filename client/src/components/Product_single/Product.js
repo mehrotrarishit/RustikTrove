@@ -7,14 +7,14 @@ import { LoginContext } from '../context/ContextProvider';
 import CircularProgress from '@mui/material/CircularProgress';
 
 const Product = () => {
-  const { _id } = useParams("");
+  const { id } = useParams("");
   const history = useNavigate("");
   const { account, setAccount } = useContext(LoginContext);
   const [inddata, setIndData] = useState(null);
 
   const getinddata = async () => {
     try {
-      const res = await fetch(`/product/${_id}`, {
+      const res = await fetch(`/product/${id}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json"
@@ -37,11 +37,11 @@ const Product = () => {
 
   useEffect(() => {
     setTimeout(getinddata, 500);
-  }, [_id]);
+  }, [id]);
 
   const addtocart = async (id) => {
     try {
-      const checkres = await fetch(`/addcart/${_id}`, {
+      const checkres = await fetch(`/addcart/${id}`, {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -74,7 +74,11 @@ const Product = () => {
           <div className="left_product">
             <img src={inddata.image_url} alt="" />
             <div className="cart_btn">
-              <button className="cart_btn1" onClick={() => addtocart(inddata._id)}>Add to Cart</button>
+              { account ?
+              <button className="cart_btn1" onClick={() =>  addtocart(inddata.id)}>Add to Cart</button>
+              :
+              <button className="cart_btn1" onClick={() =>  history("/login")}>Add to Cart</button>
+              }
               <button className="cart_btn2">Buy Now</button>
             </div>
           </div>

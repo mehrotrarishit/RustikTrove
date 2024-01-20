@@ -56,7 +56,7 @@ const Best_S = () => {
         containerClass="carousel-container"
       >
         {shuffledProducts.map((product, index) => (
-          <NavLink to={`/product/${product._id}`} className="nav-link">
+          <NavLink to={`/product/${product.id}`} className="nav-link">
             <div key={index} className="product_items">
               <div className="product_img">
                 <img src={product.image_url} alt={product.product_name} />

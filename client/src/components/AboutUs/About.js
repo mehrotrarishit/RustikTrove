@@ -3,7 +3,7 @@ import photo from '../../image/aboutus.jpg';
 import './aboutUs.css'
 const About = () => {
   return (
-    <div>
+    <div className="about_body">
       <h1 className='Heading'>About Us</h1>
        <p className='head'>OUR STORY</p>
        <h2 className='main'>RustikTrove is a manifestation of passion. A passion for style, craftsmanship, and resilience. A passion for clothing and an appreciation for everyone who adorns it.</h2>

@@ -1,0 +1,32 @@
+.drawer_container {
+    width: 250px;
+    height: auto;
+}
+
+.drawer {
+    width: 250px;
+    height: 100%;
+    background-color: black;
+    position: fixed;
+}
+
+.drawer ul {
+    list-style-type: none;
+    padding: 20px 0;
+}
+
+.drawer li {
+    padding: 15px;
+    border-bottom: 1px solid #555;
+}
+
+.drawer a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    display: block;
+}
+
+.drawer a:hover {
+    color: rgb(238, 234, 135);
+}

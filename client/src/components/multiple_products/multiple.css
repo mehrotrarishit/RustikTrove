@@ -1,0 +1,48 @@
+.multiple_page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.multiple_row {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 100%;
+  text-align: center;
+}
+
+.mr1 {
+  width: calc(25% - 20px);
+  margin-top: 50px;
+  text-align: center;
+}
+
+
+.mr1 img {
+  width: 95%;
+  height: 450px;
+  margin-left: 10px;
+  max-width: 1200px;
+}
+
+.mr1_title {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.mr1_price {
+  margin-top: 5px;
+  font-size: 14px;
+  color: black;
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  .mr1 {
+    width: calc(50% - 20px);
+  }
+}

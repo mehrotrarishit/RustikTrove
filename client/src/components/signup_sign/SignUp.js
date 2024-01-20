@@ -1,13 +1,14 @@
-import React,{useState} from 'react'
+import React,{ useContext, useState} from 'react'
 import logo from '../../image/logofinal.png';
 import "./sign.css"
 import { Form, useNavigate } from 'react-router-dom'
 import { NavLink } from 'react-router-dom';
 import {ToastContainer,toast} from 'react-toastify';
+import { LoginContext } from "../context/ContextProvider";
 import 'react-toastify/dist/ReactToastify.css';
 
 const SignUp = () => {
-
+  const { account, setAccount } = useContext(LoginContext);
   const history = useNavigate();
     const[udata,setudata]= useState({
            fname:"",
@@ -80,6 +81,7 @@ const SignUp = () => {
         toast.success("User Profile Successfully Added",{
           position:"top-center",
         })
+        setAccount(data);
         history("/");
         setudata({...udata,fname:"",email:"",countryCode:"",mobile:"",password:"",cpassword:""});
       }

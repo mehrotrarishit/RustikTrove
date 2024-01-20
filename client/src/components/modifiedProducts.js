@@ -1,4 +1,4 @@
-const transformedData = [
+const modifiedProducts = [
   {
     "product_name": "OVERSIZE TRENCH COAT WITH POCKETS",
     "image_url": "https://static.zara.net/photos///2023/I/0/1/p/2731/259/711/17/w/448/2731259711_1_1_1.jpg?ts=1692952040464",
@@ -6777,17 +6777,4 @@ const transformedData = [
   }
 ];
 
-// Add id field to each product
-// const productsWithId = transformedData.map((product, index) => ({
-//   ...product,
-//   id: `productw${index + 1}`
-// }));
-const productsWithoutNullImage = transformedData.filter(product => product.image_url !== null);
-// Store the modified data in another JavaScript file
-const fs = require('fs');
-const path = require('path');
-const outputPath = path.join(__dirname, 'modifiedProducts.js');
-
-fs.writeFileSync(outputPath, `const modifiedProducts = ${JSON.stringify(productsWithoutNullImage, null, 2)};\n\nmodule.exports = modifiedProducts;`);
-
-console.log(`Modified products data stored in ${outputPath}`);
+module.exports = modifiedProducts;
