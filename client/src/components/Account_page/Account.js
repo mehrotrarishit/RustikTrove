@@ -103,6 +103,9 @@ import { LoginContext } from '../context/ContextProvider';
 const Account = () => {
   const { account, setAccount } = useContext(LoginContext);
   const [editMobile, setEditMobile] = useState(false);
+  const [editName, setEditName] = useState(false);
+  const [editEmail, setEditEmail] = useState(false);
+  const [editPassword, setEditPassword] = useState(false);
   const [udata, setUdata] = useState({
     fname: '',
     email: '',
@@ -146,7 +149,15 @@ const Account = () => {
   const handleEditMobile = () => {
     setEditMobile(true);
   };
-
+  const handleEditName = () => {
+    setEditName(true);
+  };
+  const handleEditEmail = () => {
+    setEditEmail(true);
+  };
+  const handleEditPassword = () => {
+    setEditPassword(true);
+  };
   const handleSaveMobile = () => {
     // Add logic to save the edited mobile number
     // You can use a similar fetch request as in getdetailvaliduser
@@ -159,7 +170,42 @@ const Account = () => {
     // After saving, exit edit mode
     setEditMobile(false);
   };
+  const handleSaveName = () => {
+    // Add logic to save the edited mobile number
+    // You can use a similar fetch request as in getdetailvaliduser
+    // with the updated data from udata.mobile
 
+    // For now, let's just log the edited mobile number
+    account.fname=udata.fname;
+    console.log('Saving mobile number:', udata.fname);
+
+    // After saving, exit edit mode
+    setEditName(false);
+  };
+  const handleSaveEmail = () => {
+    // Add logic to save the edited mobile number
+    // You can use a similar fetch request as in getdetailvaliduser
+    // with the updated data from udata.mobile
+
+    // For now, let's just log the edited mobile number
+    account.email=udata.email;
+    console.log('Saving email id:', udata.email);
+
+    // After saving, exit edit mode
+    setEditEmail(false);
+  };
+  const handleSavePassword = () => {
+    // Add logic to save the edited mobile number
+    // You can use a similar fetch request as in getdetailvaliduser
+    // with the updated data from udata.mobile
+
+    // For now, let's just log the edited mobile number
+    account.password=udata.password;
+    console.log('Saving password:', udata.password);
+
+    // After saving, exit edit mode
+    setEditPassword(false);
+  };
   return (
     <div className="account_page">
       <h2>Account</h2>
@@ -207,7 +253,71 @@ const Account = () => {
               </>
             )}
           </div>
-          {/* ... Your existing details */}
+          <div className="name_account">
+            <h3>Name</h3>
+            {editName ? (
+              <>
+                <input
+                  type="text"
+                  name="fname"
+                  placeholder="Enter new name"
+                  value={udata.fname}
+                  onChange={addData}
+                />
+                <button onClick={handleSaveName}>Save</button>
+              </>
+            ) : (
+              <>
+                <p>{account.fname}</p>
+                <p>
+                  <button onClick={handleEditName}>Edit</button>
+                </p>
+              </>
+            )}
+          </div>
+          <div className="email_account">
+            <h3>E-Mail</h3>
+            {editEmail ? (
+              <>
+                <input
+                  type="text"
+                  name="email"
+                  placeholder="Enter new email id"
+                  value={udata.email}
+                  onChange={addData}
+                />
+                <button onClick={handleSaveEmail}>Save</button>
+              </>
+            ) : (
+              <>
+                <p>{account.email}</p>
+                <p>
+                  <button onClick={handleEditEmail}>Edit</button>
+                </p>
+              </>
+            )}
+          </div>
+          <div className="password_account">
+            <h3>Password</h3>
+            {editPassword ? (
+              <>
+                <input
+                  type="text"
+                  name="password"
+                  placeholder="Enter new password"
+                  value={udata.password}
+                  onChange={addData}
+                />
+                <button onClick={handleSavePassword}>Save</button>
+              </>
+            ) : (
+              <>
+                <p>
+                  <button onClick={handleEditPassword}>Edit Password</button>
+                </p>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </div>

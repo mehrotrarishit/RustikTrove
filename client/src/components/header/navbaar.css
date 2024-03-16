@@ -1,35 +1,94 @@
 header {
-    background-color:  rgb(4, 4, 4); 
-    padding: 0.5% 2%; 
-    border-bottom: 1px solid black;
-    margin-bottom: 0%;
-  }
-  
+  background-color: rgb(4, 4, 4);
+  padding: 0.5% 2%; /* Adjusted padding for better responsiveness */
+  border-bottom: 1px solid black;
+  margin-bottom: 0%;
+}
+
+nav {
+  display: flex;
+  /* flex-direction: column; Updated to column for smaller screens */
+  align-items: center;
+  justify-content:space-between;
+}
+
+.left,
+.right {
+  margin-top: 2px; /* Added margin for better spacing */
+  display: flex;
+  align-items: center;
+}
+
+/* .left,
+.right,
+.brandname,
+.tagline {
+  text-align: center;  
+} */
+
+.brandname,
+.tagline {
+  font-size: 1.2rem; /* Adjusted font size for better readability on smaller screens */
+}
+
+.brandname {
+  color: rgb(238, 234, 135);
+}
+
+.tagline {
+  color: rgb(238, 234, 135);
+}
+
+/* Media query for tablet screens */
+@media screen and (max-width: 768px) {
   nav {
-    display: flex;
+    flex-direction: row; /* Switch back to row layout for larger screens */
     justify-content: space-between;
-    align-items: center;
-   
   }
-  
-  .left {
-    display: flex;
-    align-items: center;
-  }
-  
+
+  .left,
   .right {
-    display: flex;
-    align-items: center;
+    margin-top: 0; /* Reset margin for larger screens */
   }
-  
-  .brandname {
-    font-size: 1rem;
-    justify-content: flex-start;
-    color: rgb(238, 234, 135);
+}
+
+@media screen and (max-width: 480px){
+  nav {
+    flex-direction: column; /* Switch back to row layout for larger screens */
+    justify-content: space-between;
   }
-  
-  .tagline {
-    font-size: 1rem;
-    color:  rgb(238,234,135);
-  }
-  
+}
+/* header {
+  background-color:  rgb(4, 4, 4); 
+  padding: 0.5% 2%; 
+  border-bottom: 1px solid black;
+  margin-bottom: 0%;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+ 
+}
+
+.left {
+  display: flex;
+  align-items: center;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+}
+
+.brandname {
+  font-size: 1rem;
+  justify-content: flex-start;
+  color: rgb(238, 234, 135);
+}
+
+.tagline {
+  font-size: 1rem;
+  color:  rgb(238,234,135);
+  } */

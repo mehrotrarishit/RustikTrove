@@ -56,10 +56,11 @@ ul {
   margin: 0;
   display: flex;
   justify-content: center;
+  margin-left: 10px;
 }
 
 .nav_left li {
-  margin: 0;
+  margin: 0px;
 }
 
 .nav_left a {
@@ -92,6 +93,7 @@ ul {
   margin-top: 20px;
 }
 
+.searchbar,
 .search_icon,
 .cart,
 .profile {
@@ -120,6 +122,11 @@ ul {
   color: black;
 }
 
+.accountlink {
+  text-decoration: none;
+  color: black;
+}
+
 .Abt::before {
   content: "";
   position: absolute;
@@ -133,6 +140,23 @@ ul {
 
 .Abt:hover::before {
   width: 100%;
+}
+
+.searchbar {
+  width: 500px;
+}
+
+.extrasearch {
+  position: absolute;
+  background-color: transparent;
+  color: #000;
+  top: 140px;
+  width: 440px;
+}
+
+.extrasearch .search-link {
+  text-decoration: none;
+  color: #000;
 }
 
 .M::before {
@@ -202,6 +226,11 @@ ul {
 
 .nav_left .hamburgur {
   display: none;
+}
+
+.searchbar {
+  margin-right: -200px;
+  width:500px;
 }
 
 @media (min-width: 768px) {
@@ -275,5 +304,48 @@ ul {
     display: block;
     margin-bottom: 60px;
     color: black;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .newnav_main {
+    min-height: 100vh;
+  }
+
+  .tab_new {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid black;
+    width: 100%;
+    margin-top: -600px;
+    padding-bottom: -50px;
+    height: 10px;
+    transition: height 0.3s ease-in-out;
+    position: relative;
+  }
+
+  .nav_center img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-right: -50px;
+    margin-left: 130px;
+  }
+
+  .nav_right {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 0px;
+  }
+
+  .search_icon,
+  .cart,
+  .profile {
+    margin-left: 10px;
+    margin-right: 0px;
+    cursor: pointer;
+    margin-bottom: 70px;
   }
 }

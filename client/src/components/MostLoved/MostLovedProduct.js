@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Divider } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { LoginContext } from '../context/ContextProvider';
+import logo from '../../image/logofinal.png';
 import './most.css';
 
 const MostLovedProduct = () => {
@@ -43,6 +44,77 @@ const MostLovedProduct = () => {
       console.error("Error adding to cart:", error);
     }
   };
+  
+  const paymentHandlermlp = async (e) => {
+    const currency="INR";
+    const amount="499000";
+    console.log(amount);
+    const response = await fetch(`/order`, {
+      method: "POST",
+      body: JSON.stringify({
+        amount,
+        currency,
+        receipt: "qwsaq1",
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const order = await response.json();
+    console.log(order);
+
+    var options = {
+      key: "rzp_test_5ua9xTjBS5zVfZ", // Enter the Key ID generated from the Dashboard
+      amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+      currency,
+      name: "Rustik Trove", //your business name
+      description: "Test Transaction",
+      image: logo,
+      order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+      handler: async function (response) {
+        const body = {
+          ...response,
+        };
+
+        const validateRes = await fetch(
+          `/order/validate`,
+          {
+            method: "POST",
+            body: JSON.stringify(body),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const jsonRes = await validateRes.json();
+        console.log(jsonRes);
+      },
+      prefill: {
+        //We recommend using the prefill parameter to auto-fill customer's contact information, especially their phone number
+        name: "Web Dev Matrix", //your customer's name
+        email: "webdevmatrix@example.com",
+        contact: "9000000000", //Provide the customer's phone number for better conversion rates
+      },
+      notes: {
+        address: "Razorpay Corporate Office",
+      },
+      theme: {
+        color:"#604f4f" ,
+      },
+    };
+    var rzp1 = new window.Razorpay(options);
+    rzp1.on("payment.failed", function (response) {
+      alert(response.error.code);
+      alert(response.error.description);
+      alert(response.error.source);
+      alert(response.error.step);
+      alert(response.error.reason);
+      alert(response.error.metadata.order_id);
+      alert(response.error.metadata.payment_id);
+    });
+    rzp1.open();
+    e.preventDefault();
+  };
 
   return (
     <div className="container">
@@ -60,7 +132,9 @@ const MostLovedProduct = () => {
             account ? <button className='ATC' onClick={() => addtocart(product_name)}>Add to Cart</button>
             : <button className='ATC' onClick={() => history("/login")}>Add to Cart</button>
           }
-          <button className='BN'>Buy Now</button>
+          {account?<button className='BN' onClick={paymentHandlermlp}>Buy Now</button>
+          :<button className='BN' onClick={() => history("/login")}>Buy Now</button>}
+          
         </div>
       </div>
     </div>

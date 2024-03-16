@@ -1,25 +1,27 @@
 import React, { useContext, useEffect, useState } from 'react'
-import SearchIcon from '@mui/icons-material/Search';
+import SearchIcon from '@mui/icons-material/Search.js';
 import Badge from '@mui/material/Badge';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart.js';
 import Avatar from '@mui/material/Avatar';
 import logo from '../../image/logofinal.png';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { LoginContext } from "../context/ContextProvider";
+import { LoginContext } from "../context/ContextProvider.js";
 import { useSelector } from 'react-redux';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import Divider from '@mui/material/Divider';
 import Tooltip from '@mui/material/Tooltip';
-import PersonAdd from '@mui/icons-material/PersonAdd';
-import Settings from '@mui/icons-material/Settings';
-import Logout from '@mui/icons-material/Logout';
-import LoginIcon from '@mui/icons-material/Login';
+import PersonAdd from '@mui/icons-material/PersonAdd.js';
+import Settings from '@mui/icons-material/Settings.js';
+import Logout from '@mui/icons-material/Logout.js';
+import LoginIcon from '@mui/icons-material/Login.js';
 import { IconButton } from '@mui/material';
 import Drawer from '@mui/material/Drawer';
 import Drawert from './Drawert.js'
-import MenuIcon from '@mui/icons-material/Menu';
+import MenuIcon from '@mui/icons-material/Menu.js';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
 import "./navtop.css";
 
 const Navtop = ({ openSearch }) => {
@@ -100,7 +102,7 @@ const Navtop = ({ openSearch }) => {
     const handleClosedr = () => {
         setDropen(false)
     }
-
+    
     return (
 
         <div className='tab'>

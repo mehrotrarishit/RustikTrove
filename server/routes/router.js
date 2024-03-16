@@ -5,6 +5,18 @@ const Products = require("../models/productsSchema");
 const USER = require("../models/userSchema");
 const bcrypt = require("bcryptjs");
 const authenticate = require("../middleware/authenticate");
+const path = require('path');
+const bodyParser = require('body-parser');
+const Razorpay = require('razorpay'); 
+const crypto = require("crypto");
+const { RAZORPAY_ID_KEY, RAZORPAY_SECRET_KEY } = process.env;
+const razorpayInstance = new Razorpay({
+    key_id: RAZORPAY_ID_KEY,
+    key_secret: RAZORPAY_SECRET_KEY
+});
+
+// router.use(bodyParser.json());
+// router.use(bodyParser.urlencoded({ extended: false }));
 
 // get products api
 router.get("/getproducts", async (req, res) => {
@@ -306,4 +318,80 @@ router.get("/logout", authenticate, async (req, res) => {
     }
 })
 
+// router.post('/createOrder', async (req, res) => {
+//     try {
+//         console.log('Request Body:', req.body);
+//       const amount = req.body.amount * 100;
+//       const options = {
+//         amount: amount,
+//         currency: 'INR',
+//         receipt: 'razorUser@gmail.com',
+//       };
+  
+//       razorpayInstance.orders.create(options, (err, order) => {
+//         if (!err) {
+//           res.status(200).json({
+//             success: true,
+//             msg: 'Order Created',
+//             order_id: order.id,
+//             amount: amount,
+//             key_id: RAZORPAY_ID_KEY,
+//             product_name: req.body.name,
+//             description: req.body.description,
+//             contact: '8567345632',
+//             name: 'Sandeep Sharma',
+//             email: 'sandeep@gmail.com',
+//           });
+//         } else {
+//           res.status(400).json({ success: false, msg: 'Something went wrong!' });
+//         }
+//       });
+//     } catch (error) {
+//       console.log(error.message);
+//       res.status(500).json({ success: false, msg: 'Internal Server Error' });
+//     }
+//   });
+
+router.post("/order", async (req, res) => {
+    try {
+      const razorpay = new Razorpay({
+        key_id: process.env.RAZORPAY_ID_KEY,
+        key_secret: process.env.RAZORPAY_SECRET_KEY,
+      });
+  
+      const options = req.body;
+      console.log('Received request to create order:', options);
+      const order = await razorpay.orders.create(options);
+      console.log('Order created:', order);
+  
+      if (!order) {
+        console.log('Error creating order');
+        return res.status(500).send("Error");
+      }
+  
+      res.json(order);
+    } catch (err) {
+      console.log(err);
+      res.status(500).send("Error");
+    }
+  });
+
+  router.post("/order/validate", async (req, res) => {
+    const { razorpay_order_id, razorpay_payment_id, razorpay_signature } =
+      req.body;
+  
+    const sha = crypto.createHmac("sha256", process.env.RAZORPAY_SECRET_KEY);
+    //order_id + "|" + razorpay_payment_id
+    sha.update(`${razorpay_order_id}|${razorpay_payment_id}`);
+    const digest = sha.digest("hex");
+    if (digest !== razorpay_signature) {
+      return res.status(400).json({ msg: "Transaction is not legit!" });
+    }
+  
+    res.json({
+      msg: "success",
+      orderId: razorpay_order_id,
+      paymentId: razorpay_payment_id,
+    });
+  });
 module.exports = router;

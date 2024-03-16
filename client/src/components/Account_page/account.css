@@ -37,3 +37,9 @@
 .email_account{
     display:flex;
 }
+button{
+    background-color: white;
+}
+button:hover{
+    background-color: grey;
+}

@@ -16,7 +16,6 @@ import ContactUs from './components/Contact/ContactUs';
 import Privacy from './components/PrivacyPolicy/Privacy';
 import Cart from './components/cart/Cart';
 import Product from './components/Product_single/Product';
-import SearchContainer from './components/search/SearchContainer';
 import Return from './components/ReturnPolicy/Return';
 import Review from './components/ReviewsPage/Review';
 import Shipping from './components/ShippingPolicy/Shipping';
@@ -36,22 +35,14 @@ function App() {
     }, 500);
   }, []);
 
-  const [searchOpen, setSearchOpen] = useState(false);
   const navigate = useNavigate();
 
-  const handleSearchIconClick = () => {
-    setSearchOpen(true);
-  };
 
-  const closeSearch = () => {
-    setSearchOpen(false);
-  };
-
-  function Home({ handleSearchIconClick }) {
+  function Home() {
     return (
       <>
         <ScrollToTop />
-        <Newnav handleSearchIconClick={handleSearchIconClick} />
+        <Newnav />
         <Best_S />
         <MostLovedProduct />
         <Footer />
@@ -76,23 +67,23 @@ function App() {
           <Navbar />
           <ReviewsButton />
           <Routes className="navtop">
-            <Route path="/Abt" element={<Navtop handleSearchIconClick={handleSearchIconClick} />} />
-            <Route path="/faq" element={<Navtop handleSearchIconClick={handleSearchIconClick} />} />
-            <Route path="/contact-us" element={<Navtop handleSearchIconClick={handleSearchIconClick} />} />
-            <Route path="/privacy-policy" element={<Navtop handleSearchIconClick={handleSearchIconClick} />} />
-            <Route path="/return-policy" element={<Navtop handleSearchIconClick={handleSearchIconClick} />} />
-            <Route path="/shipping-policy" element={<Navtop handleSearchIconClick={handleSearchIconClick} />} />
-            <Route path="/terms-of-service" element={<Navtop handleSearchIconClick={handleSearchIconClick} />} />
-            <Route path="/product/:id" element={<Navtop handleSearchIconClick={handleSearchIconClick} />} />
-            <Route path="/cart" element={<Navtop handleSearchIconClick={handleSearchIconClick} />} />
-            <Route path="/reviews" element={<Navtop handleSearchIconClick={handleSearchIconClick} />} />
-            <Route path="/men" element={<Navtop handleSearchIconClick={handleSearchIconClick} />} />
-            <Route path="/women" element={<Navtop handleSearchIconClick={handleSearchIconClick} />} />
-            <Route path="/accessories" element={<Navtop handleSearchIconClick={handleSearchIconClick} />} />
-            <Route path="/account" element={<Navtop handleSearchIconClick={handleSearchIconClick} />} />
+            <Route path="/Abt" element={<Navtop />} />
+            <Route path="/faq" element={<Navtop  />} />
+            <Route path="/contact-us" element={<Navtop  />} />
+            <Route path="/privacy-policy" element={<Navtop  />} />
+            <Route path="/return-policy" element={<Navtop  />} />
+            <Route path="/shipping-policy" element={<Navtop  />} />
+            <Route path="/terms-of-service" element={<Navtop />} />
+            <Route path="/product/:id" element={<Navtop  />} />
+            <Route path="/cart" element={<Navtop  />} />
+            <Route path="/reviews" element={<Navtop  />} />
+            <Route path="/men" element={<Navtop  />} />
+            <Route path="/women" element={<Navtop  />} />
+            <Route path="/accessories" element={<Navtop  />} />
+            <Route path="/account" element={<Navtop  />} />
           </Routes>
           <Routes>
-            <Route path="/" element={<Home handleSearchIconClick={handleSearchIconClick} />} />
+            <Route path="/" element={<Home />} />
             <Route path="/login" element={<Sign_in />} />
             <Route path="/register" element={<SignUp />} />
             <Route path="/Abt" element={<About />} />
@@ -110,7 +101,7 @@ function App() {
             <Route path="/accessories" element={<Accessories />} />
             <Route path="/account" element={<Account />} />
           </Routes>
-          {searchOpen && <SearchContainer onClose={closeSearch} />}
+          
 
           <Routes className="scrolltotop">
             <Route path="/Abt" element={<ScrollToTop />} />
